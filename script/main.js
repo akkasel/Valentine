@@ -271,16 +271,16 @@ const animationTimeline = () => {
     )
 
 // Assuming you have some animation for "ten"
-.from(".ten p", 1, {
+.from(".ten p", 3, {
   opacity: 0,
   scale: 0.5
 }, "closeTen")
 
-.to(".ten", 0.5, {
+.to(".ten", 2, {
   opacity: 0,
   display: 'none',
   onComplete: showYouTubeVideo // Callback function to display YouTube video
-}, "closeTen+=1") // Adjust time to ensure "ten" is closed before showing the video
+}, "closeTen+=3") // Adjust time to ensure "ten" is closed before showing the video
 ;
 
 // Function to dynamically insert YouTube video
