@@ -311,6 +311,7 @@ body {
   .nine p {
     font-size: 1.5rem;
     font-weight: lighter;
+    opacity: 0; /* Or visibility: hidden; */
   }
 
   .ten {

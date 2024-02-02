@@ -310,8 +310,8 @@ const animationTimeline = () => {
 // Function to dynamically insert YouTube video
 function showYouTubeVideo() {
   const iframe = document.createElement("iframe");
-  iframe.setAttribute("width", "560");
-  iframe.setAttribute("height", "315");
+  iframe.setAttribute("width", "720");
+  iframe.setAttribute("height", "450");
   iframe.setAttribute("src", "https://www.youtube.com/embed/jwhkCmMHpSU?si=4njw2vhOhO3j-0dY"); // Replace YOUR_VIDEO_ID
   iframe.setAttribute("frameborder", "0");
   iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
