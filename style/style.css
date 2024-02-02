@@ -313,10 +313,10 @@ body {
     font-weight: lighter;
   }
 
-  .ten p {
-    font-size: 1.5rem;
-    font-weight: lighter;
+  .ten {
+    opacity: 0; /* Or visibility: hidden; */
   }
+  
 
   #youtubeVideoPlaceholder {
     display: none; /* Initially hidden */

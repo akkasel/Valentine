@@ -255,17 +255,15 @@ const animationTimeline = () => {
       y: 30,
       zIndex: "-1",
     })
-    .staggerFrom(".nine p", 1, {opacity: 0, scale: 0.5}, 1.2)
-.to(".nine p", 0.5, {
-  opacity: 0,
-  scale: 0.5,
-  onComplete: () => {
-    // Optionally do something right after the nine content has been hidden
-  }
-}, "+=1") // Adjust this to control when the nine section starts to fade out
-.to(".last-smile", 0.5, {
-  rotation: 90,
-}, "+=0.5")
+    .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
+    .to(
+      ".last-smile",
+      0.5,
+      {
+        rotation: 90,
+      },
+      "+=1"
+    )
 
 // Assuming you have some animation for "ten"
 .from(".ten p", 1, {
