@@ -264,9 +264,21 @@ const animationTimeline = () => {
       },
       "+=1"
     )
-    // Add a new animation step here to display the YouTube video
-.call(() => { // Use .call() to execute a function
-  // Create the iframe element
+
+// Assuming you have some animation for "ten"
+.from(".ten", 1, {
+  opacity: 0,
+  scale: 0.5
+}, "closeTen")
+.to(".ten", 0.5, {
+  opacity: 0,
+  display: 'none',
+  onComplete: showYouTubeVideo // Callback function to display YouTube video
+}, "closeTen+=1") // Adjust time to ensure "ten" is closed before showing the video
+;
+
+// Function to dynamically insert YouTube video
+function showYouTubeVideo() {
   const iframe = document.createElement("iframe");
   iframe.setAttribute("width", "560");
   iframe.setAttribute("height", "315");
@@ -274,13 +286,11 @@ const animationTimeline = () => {
   iframe.setAttribute("frameborder", "0");
   iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
   iframe.setAttribute("allowfullscreen", true);
-
-  document.getElementById("youtubeVideoPlaceholder").style.display = 'block';
-
-
-  // Select the placeholder and insert the iframe
-  document.getElementById("youtubeVideoPlaceholder").appendChild(iframe);
-})
+  // Optionally, make the placeholder visible if you've set it to be initially hidden
+  const placeholder = document.getElementById("youtubeVideoPlaceholder");
+  placeholder.style.display = 'block'; // Make sure the placeholder is visible
+  placeholder.appendChild(iframe); // Insert the iframe into the placeholder
+}
 
   // tl.seek("currentStep");
   // tl.timeScale(2);
