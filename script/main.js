@@ -255,6 +255,8 @@ const animationTimeline = () => {
       y: 30,
       zIndex: "-1",
     })
+
+    /*
     .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
     .to(
       ".last-smile",
@@ -275,8 +277,35 @@ const animationTimeline = () => {
   opacity: 0,
   display: 'none',
   onComplete: showYouTubeVideo // Callback function to display YouTube video
-}, "closeTen+=1") // Adjust time to ensure "ten" is closed before showing the video
+}, "closeTen+=2") // Adjust time to ensure "ten" is closed before showing the video
 ;
+*/
+
+.staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
+.to(".nine p", 0.5, {
+  opacity: 0, // Fade out the text in the "nine" section
+  scale: 0.5, // Optionally scale it down as it fades out
+  onComplete: () => {
+    // Optionally, do something right after the "nine" content has been hidden, like logging to console
+    console.log('"Nine" section is now hidden.');
+  }
+}, "+=1") // Adjust timing as needed to control when the nine section starts to fade out
+.to(".last-smile", 0.5, {
+  rotation: 90,
+}, "+=0.5") // Adjust timing to ensure this happens after "nine" is hidden
+
+// Before starting animation for "ten", ensure "nine" is fully hidden
+.from(".ten p", 1, {
+  opacity: 0,
+  scale: 0.5
+}, "closeTen") // This marks the start of the "ten" animation
+
+.to(".ten", 0.5, {
+  opacity: 0,
+  display: 'none',
+  onComplete: showYouTubeVideo // Callback function to display YouTube video
+}, "closeTen+=1"); // Adjust time to ensure "ten" is closed before showing the video
+
 
 // Function to dynamically insert YouTube video
 function showYouTubeVideo() {
