@@ -266,10 +266,11 @@ const animationTimeline = () => {
     )
 
 // Assuming you have some animation for "ten"
-.from(".ten", 1, {
+.from(".ten p", 1, {
   opacity: 0,
   scale: 0.5
 }, "closeTen")
+
 .to(".ten", 0.5, {
   opacity: 0,
   display: 'none',
