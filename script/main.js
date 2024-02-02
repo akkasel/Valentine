@@ -255,32 +255,29 @@ const animationTimeline = () => {
       y: 30,
       zIndex: "-1",
     })
-    .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
-    .to(
-      ".last-smile",
-      0.5,
-      {
-        rotation: 90,
-      },
-      "+=1"
-    )
-    .to(
-      ".nine p", {
-        display: 'none'
-      }
-    )
+    .staggerFrom(".nine p", 1, {opacity: 0, scale: 0.5}, 1.2)
+.to(".nine p", 0.5, {
+  opacity: 0,
+  scale: 0.5,
+  onComplete: () => {
+    // Optionally do something right after the nine content has been hidden
+  }
+}, "+=1") // Adjust this to control when the nine section starts to fade out
+.to(".last-smile", 0.5, {
+  rotation: 90,
+}, "+=0.5")
 
 // Assuming you have some animation for "ten"
-.from(".ten p", 3, {
+.from(".ten p", 1, {
   opacity: 0,
   scale: 0.5
 }, "closeTen")
 
-.to(".ten", 2, {
+.to(".ten", 0.5, {
   opacity: 0,
   display: 'none',
   onComplete: showYouTubeVideo // Callback function to display YouTube video
-}, "closeTen+=3") // Adjust time to ensure "ten" is closed before showing the video
+}, "closeTen+=1") // Adjust time to ensure "ten" is closed before showing the video
 ;
 
 // Function to dynamically insert YouTube video
