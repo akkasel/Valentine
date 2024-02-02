@@ -264,9 +264,23 @@ const animationTimeline = () => {
       },
       "+=1"
     )
-    .to(".ten", 0.5, {
-        
-    })
+    // Add a new animation step here to display the YouTube video
+.call(() => { // Use .call() to execute a function
+  // Create the iframe element
+  const iframe = document.createElement("iframe");
+  iframe.setAttribute("width", "560");
+  iframe.setAttribute("height", "315");
+  iframe.setAttribute("src", "https://www.youtube.com/embed/jwhkCmMHpSU?si=4njw2vhOhO3j-0dY"); // Replace YOUR_VIDEO_ID
+  iframe.setAttribute("frameborder", "0");
+  iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+  iframe.setAttribute("allowfullscreen", true);
+
+  document.getElementById("youtubeVideoPlaceholder").style.display = 'block';
+
+
+  // Select the placeholder and insert the iframe
+  document.getElementById("youtubeVideoPlaceholder").appendChild(iframe);
+})
 
   // tl.seek("currentStep");
   // tl.timeScale(2);
