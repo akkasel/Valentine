@@ -264,6 +264,11 @@ const animationTimeline = () => {
       },
       "+=1"
     )
+    .to(
+      ".nine p", {
+        display: 'none'
+      }
+    )
 
 // Assuming you have some animation for "ten"
 .from(".ten p", 1, {
