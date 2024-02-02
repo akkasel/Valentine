@@ -263,7 +263,10 @@ const animationTimeline = () => {
         rotation: 90,
       },
       "+=1"
-    );
+    )
+    .to(".ten", 0.5, {
+        
+    })
 
   // tl.seek("currentStep");
   // tl.timeScale(2);
